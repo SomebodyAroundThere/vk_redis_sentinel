@@ -12,7 +12,38 @@ resource "vkcs_networking_secgroup_rule" "secgroup_rule_test" {
   remote_ip_prefix  = "0.0.0.0/0"
   security_group_id = "${vkcs_networking_secgroup.secgroup_test.id}"
 }
-
+resource "vkcs_networking_secgroup_rule" "secgroup_rule_test1" {
+  direction         = "ingress"
+  protocol          = "tcp"
+  port_range_min    = 6379
+  port_range_max    = 6379
+  remote_ip_prefix  = "192.168.200./24"
+  security_group_id = "${vkcs_networking_secgroup.secgroup_test.id}"
+}
+resource "vkcs_networking_secgroup_rule" "secgroup_rule_test2" {
+  direction         = "egress"
+  protocol          = "tcp"
+  port_range_min    = 6379
+  port_range_max    = 6379
+  remote_ip_prefix  = "192.168.200./24"
+  security_group_id = "${vkcs_networking_secgroup.secgroup_test.id}"
+}
+resource "vkcs_networking_secgroup_rule" "secgroup_rule_test3" {
+  direction         = "ingress"
+  protocol          = "tcp"
+  port_range_min    = 26379
+  port_range_max    = 26379
+  remote_ip_prefix  = "192.168.200./24"
+  security_group_id = "${vkcs_networking_secgroup.secgroup_test.id}"
+}
+resource "vkcs_networking_secgroup_rule" "secgroup_rule_test4" {
+  direction         = "egress"
+  protocol          = "tcp"
+  port_range_min    = 26379
+  port_range_max    = 26379
+  remote_ip_prefix  = "192.168.200./24"
+  security_group_id = "${vkcs_networking_secgroup.secgroup_test.id}"
+}
 resource "vkcs_compute_keypair" "ssh1" {
   # Название SSH-ключа. Ключ будет отображаться в настройках аккаунта на вкладке *Ключевые пары*
   name = "terraform_ssh_key1"
