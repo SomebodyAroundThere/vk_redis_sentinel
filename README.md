@@ -38,7 +38,7 @@ sudo apt install redis-server redis-sentinel
 ```
 Отредактируйте conf файлы: \
 **Master**
-/etc/redis/redis.conf: \
+**/etc/redis/redis.conf:** \
 protected-mode yes \
 bind <ip-master> 127.0.0.1 \
 requirepass <master-password> \
@@ -48,7 +48,7 @@ rename-command FLUSHALL "" \
 rename-command FLUSHDB "" \
 rename-command CONFIG "" \
 rename-command SHUTDOWN "" \
-/etc/redis/sentinel.conf: \
+**/etc/redis/sentinel.conf:** \
 protected-mode yes \
 bind <ip-master> 127.0.0.1 \
 sentinel monitor mymaster <ip-master> 6379 1 \
@@ -58,13 +58,13 @@ sentinel parallel-syncs mymaster 1 \
 sentinel auth-pass mymaster <master-password> \
 requirepass <sentinel-password> \
 **Slaves** \
-/etc/redis/redis.conf: \
+**/etc/redis/redis.conf:** \
 bind <ip-slave> 127.0.0.1 \
 requirepass <master-password> \
 masterauth <master-password> \
 replicaof <ip-master> 6379 \
 replica-announce-ip ubuntu-surname-me1/gz1.mcs.local \
-/etc/redis/sentinel.conf: \
+**/etc/redis/sentinel.conf:** \
 protected-mode yes \
 bind <ip-slave> 127.0.0.1 \
 sentinel monitor mymaster <ip-master> 6379 1 \
@@ -80,6 +80,7 @@ requirepass <sentinel-password>
 mysql-database-terraform/
 ├── main.tf                 # Основная конфигурация Terraform
 ├── variables.tf            # Определение переменных
-├── vkcs_provider.tf        # Настройка провайдера VK Cloud
-├── script.py               # Скрипт заполнения БД тестовыми данными
+├── provider.tf             # Настройка провайдера VK Cloud
+├── network.tf              # Настройка сети
+
 ```
