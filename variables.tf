@@ -19,19 +19,6 @@ variable "compute_flavor" {
   default = "STD2-2-8"
 }
 
-variable "key_pair_name1" {
-  type = string
-  default = "ubuntu-Sokolova-HNI4S95u"
-}
 
-variable "key_pair_name2" {
-  type = string
-  default = "ubuntu-Sokolova-MM30Ta5p"
-}
-
-variable "key_pair_name3" {
-  type = string
-  default = "VM1-Sokolova-vUA6KexR"
-}
 
 
