@@ -17,7 +17,7 @@ resource "vkcs_networking_secgroup_rule" "secgroup_rule_test1" {
   protocol          = "tcp"
   port_range_min    = 6379
   port_range_max    = 6379
-  remote_ip_prefix  = "192.168.200./24"
+  remote_ip_prefix  = "192.168.200.0/24"
   security_group_id = "${vkcs_networking_secgroup.secgroup_test.id}"
 }
 resource "vkcs_networking_secgroup_rule" "secgroup_rule_test2" {
@@ -25,7 +25,7 @@ resource "vkcs_networking_secgroup_rule" "secgroup_rule_test2" {
   protocol          = "tcp"
   port_range_min    = 6379
   port_range_max    = 6379
-  remote_ip_prefix  = "192.168.200./24"
+  remote_ip_prefix  = "192.168.200.0/24"
   security_group_id = "${vkcs_networking_secgroup.secgroup_test.id}"
 }
 resource "vkcs_networking_secgroup_rule" "secgroup_rule_test3" {
@@ -33,7 +33,7 @@ resource "vkcs_networking_secgroup_rule" "secgroup_rule_test3" {
   protocol          = "tcp"
   port_range_min    = 26379
   port_range_max    = 26379
-  remote_ip_prefix  = "192.168.200./24"
+  remote_ip_prefix  = "192.168.200.0/24"
   security_group_id = "${vkcs_networking_secgroup.secgroup_test.id}"
 }
 resource "vkcs_networking_secgroup_rule" "secgroup_rule_test4" {
@@ -41,7 +41,7 @@ resource "vkcs_networking_secgroup_rule" "secgroup_rule_test4" {
   protocol          = "tcp"
   port_range_min    = 26379
   port_range_max    = 26379
-  remote_ip_prefix  = "192.168.200./24"
+  remote_ip_prefix  = "192.168.200.0/24"
   security_group_id = "${vkcs_networking_secgroup.secgroup_test.id}"
 }
 resource "vkcs_compute_keypair" "ssh1" {
